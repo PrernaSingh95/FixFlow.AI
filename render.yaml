@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: fixflow-ai
+    env: docker
+    plan: free
+    region: oregon
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: PORT
+        value: 8000
+      - key: ENVIRONMENT
+        value: production
+      - key: DUPLICATE_SIMILARITY_THRESHOLD
+        value: "0.80"
+      - key: DATABASE_PATH
+        value: /tmp/fixflow.db
